@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/mwinel/api-book-a-meal.svg?branch=master)](https://travis-ci.org/mwinel/api-book-a-meal)
+
 # book-a-meal api
 Book-A-Meal is an api that allows customers to make food orders and helps the food vendor know what the customers want to eat.
 
