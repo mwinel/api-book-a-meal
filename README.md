@@ -104,6 +104,23 @@ The API handles four HTTP requests
 
 ## Sample Requests
 
+Index
+```
+
+http GET http://localhost:5000/api/v1/
+
+HTTP/1.0 200 OK
+Content-Length: 45
+Content-Type: application/json
+Date: Sun, 27 May 2018 11:06:36 GMT
+Server: Werkzeug/0.14.1 Python/3.6.5
+
+{
+    "message": "Welcome to Book-a-meal."
+}
+
+```
+
 To register a new user:
 [User Registration](#)
 
