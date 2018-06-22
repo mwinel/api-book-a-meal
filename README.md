@@ -72,7 +72,7 @@ flask db upgrade
 python run.py
 ```
 
-Access the application at the address **http://localhost:5000/**
+Access the api at the address **http://localhost:5000/**
 
 ## Testing
 
