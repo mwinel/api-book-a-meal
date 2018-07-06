@@ -28,7 +28,7 @@ class User(db.Model):
 
 	@classmethod
 	def get_by_id(cls, id):
-		""" Find a user by username. """
+		""" Find a user by id. """
 		return cls.query.filter_by(id = id).first()
 
 	@classmethod
@@ -54,20 +54,6 @@ class User(db.Model):
 		return {
 			'users': list(map(lambda x: to_json(x), User.query.all()))
 		}
-
-	@classmethod
-	def delete_users(cls):
-		""" Delete all users. """
-		try:
-			num_rows_deleted = db.session.query(cls).delete()
-			db.session.commit()
-			return {
-				'message': '{} row(s) deleted'.format(num_rows_deleted)
-			}
-		except:
-			return {
-				'message': 'Something went wrong'
-			}
 
 	def __repr__(self):
 		return '<User {}>'.format(self.username)
