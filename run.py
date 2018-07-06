@@ -1,8 +1,19 @@
 from app import app, api
 from app.resources.index import Index
+from app.resources.users import UserRegistration, UserLogin, \
+        UserLogoutAccess, UserLogoutRefresh, TokenRefresh, \
+        AllUsers, SecretResource
 
-""" Define API endpoints """
+""" Define API endpoints. """
 api.add_resource(Index, "/", "/index")
+api.add_resource(UserRegistration, '/registration')
+api.add_resource(UserLogin, '/login')
+api.add_resource(UserLogoutAccess, '/logout/access')
+api.add_resource(UserLogoutRefresh, '/logout/refresh')
+api.add_resource(TokenRefresh, '/token/refresh')
+api.add_resource(AllUsers, '/users')
+api.add_resource(SecretResource, '/secret')
+
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug = True)
