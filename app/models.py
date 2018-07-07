@@ -5,13 +5,12 @@ from app import create_app, db
 
 class User(db.Model):
 	""" This class defines the users table. """
+	
 	__tablename__ = 'users'
 
 	id = db.Column(db.Integer, primary_key = True)
-	username = db.Column(db.String(60), nullable = False, 
-		unique = True)
-	email = db.Column(db.String(120), nullable = False, 
-		unique = True)
+	username = db.Column(db.String(60), nullable = False, unique = True)
+	email = db.Column(db.String(120), nullable = False, unique = True)
 	password = db.Column(db.String(140), nullable = False)
 
 	def save_to_db(self):
