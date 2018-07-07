@@ -97,10 +97,10 @@ The API handles four HTTP requests
 | `/api/v1/index` | `GET`  | The index | `FALSE` |
 | `/api/v1/auth/register` | `POST`  | User registration | `FALSE` |
 | `/api/v1/auth/login` | `POST` | User login | `FALSE` |
-| `/api/v1/menu` | `GET, POST` | A user's menu | `TRUE` |
-| `/api/v1/menu/<id>` | `GET, PUT, DELETE` | A single menu | `TRUE` |
-| `/api/v1/menu/<id>/meals` | `GET, POST` | meals in a menu | `TRUE` |
-| `/api/v1/menu/<id>/meals/<meal_id>` | `GET, PUT, DELETE`| A single menu meal | `TRUE` |
+| `/api/v1/menus` | `GET, POST` | A user's menu | `TRUE` |
+| `/api/v1/menus/<id>` | `GET, PUT, DELETE` | A single menu | `TRUE` |
+| `/api/v1/menus/<id>/meals` | `GET, POST` | meals in a menu | `TRUE` |
+| `/api/v1/menus/<id>/meals/<meal_id>` | `GET, PUT, DELETE`| A single menu meal | `TRUE` |
 
 ## Sample Requests
 
