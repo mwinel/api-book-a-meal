@@ -47,7 +47,8 @@ class User(db.Model):
 			return {
 				'id': x.id,
 				'username': x.username,
-				'email': x.email
+				'email': x.email,
+				'password': x.password
 			}
 		return {
 			'users': list(map(lambda x: to_json(x), User.query.all()))
