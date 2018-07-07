@@ -51,7 +51,7 @@ class User(db.Model):
 				'password': x.password
 			}
 		return {
-			'users': list(map(lambda x: to_json(x), User.query.all()))
+			'Users': list(map(lambda x: to_json(x), User.query.all()))
 		}
 
 	def __repr__(self):
@@ -59,7 +59,7 @@ class User(db.Model):
 
 
 class RevokedTokenModel(db.Model):
-	""" This class stores a unique token identifier. """
+	""" This class stores a unique jwt token identifier. """
 
 	__tablename__ = 'revoked_tokens'
 
@@ -76,3 +76,45 @@ class RevokedTokenModel(db.Model):
 		""" Check if the token is revoked. """
 		query = cls.query.filter_by(jti = jti).first()
 		return bool(query)
+
+
+class Menu(db.Model):
+	""" This class defines menu tables. """
+
+	__tablename__ = 'menus'
+
+	id = db.Column(db.Integer, primary_key = True)
+	name = db.Column(db.String(140), nullable = False)
+	description = db.Column(db.String(250))
+	created_by = db.Column(db.Integer, db.ForeignKey('users.id'))
+	user = db.relationship('User', backref = db.backref(
+		'users', lazy = 'dynamic'))
+
+	def add_menu_to_db(self):
+		""" Add menu to database. """
+		db.session.add(self)
+		db.session.commit()
+
+	def delete(self):
+		""" Delete menu from database. """
+		db.session.delete(self)
+		db.session.commit()
+
+	def to_json(self):
+		return {
+			'id': self.id,
+			'name': self.name,
+			'description': self.description
+		}
+
+	@classmethod
+	def get_all_menus(cls):
+		""" Return all menus. """
+		return {
+			'Menus': list(map(lambda x: Menu.to_json(x), Menu.query.all()))
+		}
+
+	@staticmethod
+	def get_all():
+		""" This method gets all the menus for a given user. """
+		return Menu.query.filter_by(created_by = user)
