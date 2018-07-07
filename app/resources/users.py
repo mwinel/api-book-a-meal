@@ -34,7 +34,7 @@ class UserRegistration(Resource):
 				'message': 'User {} created successfully'.format(data['username']),
 				'access token': access_token,
 				'refresh token': refresh_token
-			}
+			}, 201
 		except:
 			return {
 				'message': 'Something went wrong.'
