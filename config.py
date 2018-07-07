@@ -6,7 +6,6 @@ class Config(object):
 
 	DEBUG = False
 	TESTING = False
-	SECRET_KEY = os.environ.get('SECRET_KEY') or "go-on-until-you-get-it"
 	SQLALCHEMY_DATABASE_URI = "postgresql://postgres:myPassword@localhost/api_bk"
 	SQLALCHEMY_TRACK_MODIFICATIONS = False
 
